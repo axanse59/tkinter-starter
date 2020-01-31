@@ -17,11 +17,25 @@ lbl = Label(window, text="Are you Alex?")
 # Place the label in the window at 0, 0
 lbl.grid(column=0, row=1)
 
+score = 0
+
+lbl = Label(window, text=score, font=("Arial Bold", 100))
+lbl.grid(column=1, row=9)
+
+
+def addToScore():
+  global score
+  score += 1
+  lbl['text'] = score
+
+btn = Button(window, text="click", command=addToScore)
+btn.grid(column = 1 , row = 10)
+ 
 bar = Progressbar(window, length=200)
 bar['value'] = 100
 
 menu = Menu(window)
- 
+
 new_item = Menu(menu)
  
 new_item.add_command(label='Alexs Menu')
@@ -74,6 +88,7 @@ bar = Progressbar(window, length=200, style='black.Horizontal.TProgressbar')
 bar['value'] = 70
  
 bar.grid(column=5, row=6)
- 
+
+
 
 window.mainloop()     # Keep the window open
